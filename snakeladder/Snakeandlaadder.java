@@ -4,9 +4,11 @@ public class Snakeandlaadder {
 	public static final int LadderCase=1;
 	public static final int SnakeCase=2;
 	public static void main(String[] args) {
-		double position =0;	
+		double position =0;
+		double dicerollsCount=0;
 		while (position<100) {
 		double dicerolls= (Math.floor(Math.random()*6+1));
+		dicerollsCount++;
 		System.out.println("Number got by dice rolling "+dicerolls);
 		int option = (int)Math.floor(Math.random()*3);
 		switch (option) {
@@ -18,15 +20,15 @@ public class Snakeandlaadder {
 			position=position+ dicerolls;
 			break;
 		case SnakeCase:
-			if (position+dicerolls <=100)
 			position=position- dicerolls;
+			if (position<0) {
+				position=0;
 			break;
 		    }
-		if (position<0) {
-			position=0;
+		
 		    }
-		System.out.println("Player moved to position: "+position);		
-}				
+		System.out.println("Player moved to position: "+position);
+		System.out.println("Dice rolled till win position is  "+dicerollsCount );
+}		
 }
 }
-
